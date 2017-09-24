@@ -90,8 +90,11 @@ def plot_basis(ax, Q, final_Q=None):
 def _setup_axies(ax):
     ax.scatter([0], [0], [0], color='black', s=50)
     ax.set_xlim([-1, 1])
+    ax.set_xlabel("$x$")
     ax.set_xticks([-1.0, 0.0, 1.0])
     ax.set_ylim([-1, 1])
+    ax.set_ylabel("$y$")
     ax.set_yticks([-1.0, 0.0, 1.0])
     ax.set_zlim([-1, 1])
+    ax.set_zlabel("$z$")
     ax.set_zticks([-1.0, 0.0, 1.0])
