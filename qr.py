@@ -31,10 +31,9 @@ def power_iteration_matrix(A):
     return X, memo
 
 def simultaneous_orthogonalization(A):
-    X = np.random.normal(size=A.shape)
-    Q, R = np.linalg.qr(X)
-    memo = []; memo.append(Q)
-    previous = np.empty(shape=Q.shape)
+    X = np.eye(A.shape[0])
+    memo = []; memo.append(X)
+    previous = np.empty(shape=X.shape)
     for i in range(100):
         previous[:] = Q
         X = A @ Q
