@@ -47,16 +47,17 @@ def simultaneous_orthogonalization(A):
 def qr_algorithm(A):
     X = np.random.normal(size=A.shape)
     Q, R = np.linalg.qr(A)
-    memo = []; memo.append(Q)
+    memo_q = []; memo_q.append(Q)
+    memo_r = []; memo_r.append(R)
     previous = np.empty(shape=Q.shape)
     for i in range(500):
         previous[:] = Q
         X = R @ Q
         Q, R = np.linalg.qr(X)
-        memo.append(Q)
+        memo_q.append(Q); memo_r.append(R)
         if np.allclose(X, np.triu(X), atol=10**-8): 
             break
-    return Q, memo
+    return Q, memo_q, memo_r
 
 
 def plot_vector(ax, v, final_v=None):
